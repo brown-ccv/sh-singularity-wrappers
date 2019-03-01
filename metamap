@@ -1,0 +1,19 @@
+#!/bin/bash
+
+COMMAND="/opt/public_mm/bin/skrmedpostctl start && /opt/public_mm/bin/metamap "$@""
+
+metamap_image="/opt/browncis/containers/bcbi/metamap-2018.simg"
+
+if [ ! -d "$HOME/.metamap" ]; then
+  mkdir $HOME/.metamap
+  mkdir $HOME/.metamap/log
+fi
+
+echo "**********************************************************************"
+echo "Running image $metamap_image "
+echo "with options $COMMAND"
+echo "**********************************************************************"
+
+LOG_PATH=~/.metamap/log:/opt/public_mm/MedPost-SKR/Tagger_server/log
+
+singularity exec --cleanenv -B /data -B $LOG_PATH  $metamap_image bash -c "${COMMAND}"
