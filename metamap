@@ -1,19 +1,18 @@
 #!/bin/bash
 
-COMMAND="/opt/public_mm/bin/skrmedpostctl start && /opt/public_mm/bin/metamap "$@""
+COMMAND="/opt/public_mm/bin/skrmedpostctl start && /opt/public_mm/bin/wsdserverctl start && /opt/public_mm/bin/metamap "$@""
 
 metamap_image="/opt/browncis/containers/bcbi/metamap-2018.simg"
 
-if [ ! -d "$HOME/.metamap" ]; then
-  mkdir $HOME/.metamap
-  mkdir $HOME/.metamap/log
-fi
+mkdir -p $HOME/.metamap/tagger_log
+mkdir -p $HOME/.metamap/wsd_log
 
 echo "**********************************************************************"
-echo "Running image $metamap_image "
-echo "with options $COMMAND"
+echo "Running metamap image $metamap_image "
+echo "with options "$@""
 echo "**********************************************************************"
 
-LOG_PATH=~/.metamap/log:/opt/public_mm/MedPost-SKR/Tagger_server/log
+TAGGER_LOG=~/.metamap/log:/opt/public_mm/MedPost-SKR/Tagger_server/log
+WSD_LOG=~/.metamap/wsd_log:/opt/public_mm/WSD_Server/log
 
-singularity exec --cleanenv -B /data -B $LOG_PATH  $metamap_image bash -c "${COMMAND}"
+singularity exec --cleanenv -B /data -B $TAGGER_LOG -WSD_LOG  $metamap_image bash -c "${COMMAND}"
