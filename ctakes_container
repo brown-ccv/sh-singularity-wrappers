@@ -9,7 +9,7 @@ len=${#ctakes_img[*]}
 if (( $len == 1))
 then
     echo "**********************************************************************"
-    echo "Running $julia_img "
+    echo "Running $ctakes_img"
     echo "**********************************************************************"
     singularity shell --cleanenv  -B /data:/data -B /data/ursa_software/ctakes/ctakes_dictionaries:/opt/apache-ctakes-4.0.0/resources/org/apache/ctakes/dictionary/lookup/fast ${ctakes_img} 
 else
