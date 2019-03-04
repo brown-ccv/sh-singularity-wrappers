@@ -12,6 +12,6 @@ then
     singularity exec -B /data $julia_img julia "$@"
 else
     echo "**********************************************************************"
-    echo "Error - more than one julia image found ($len). Contact addministrator"
+    echo "Error - more than one PredictMD (unstable) image found ($len). Contact addministrator"
     echo "**********************************************************************"
 fi
