@@ -1,0 +1,17 @@
+#!/bin/bash
+
+julia_img=`ls /opt/browncis/containers/bcbi/predictmd-unstable-*`
+
+len=${#julia_img[*]}
+
+if (( $len == 1))
+then
+    echo "**********************************************************************"
+    echo "Running $julia_img "
+    echo "**********************************************************************"
+    singularity shell -B /data $julia_img 
+else
+    echo "**********************************************************************"
+    echo "Error - more than one PredictMD (unstable) image found ($len). Contact addministrator"
+    echo "**********************************************************************"
+fi
