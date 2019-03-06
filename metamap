@@ -14,5 +14,6 @@ echo "**********************************************************************"
 
 TAGGER_LOG=~/.metamap/tagger_log:/opt/public_mm/MedPost-SKR/Tagger_server/log
 WSD_LOG=~/.metamap/wsd_log:/opt/public_mm/WSD_Server/log
+DICTIONARIES=/data/ursa_software/metamap/public_mm/DB:/opt/public_mm/DB
 
-singularity exec --cleanenv -B /data -B $TAGGER_LOG -B $WSD_LOG  $metamap_image bash -c "${COMMAND}"
+singularity exec --cleanenv -B /data -B $TAGGER_LOG -B $WSD_LOG -B $DICTIONARIES $metamap_image bash -c "${COMMAND}"
