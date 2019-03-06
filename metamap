@@ -1,11 +1,11 @@
 #!/bin/bash
 
-COMMAND="/opt/public_mm/bin/skrmedpostctl start && /opt/public_mm/bin/wsdserverctl start && /opt/public_mm/bin/metamap "$@""
+COMMAND="/opt/public_mm/bin/skrmedpostctl start && /opt/public_mm/bin/metamap "$@""
 
 metamap_image="/opt/browncis/containers/bcbi/metamap-2018.simg"
 
 mkdir -p $HOME/.metamap/tagger_log
-mkdir -p $HOME/.metamap/wsd_log
+# mkdir -p $HOME/.metamap/wsd_log
 
 echo "**********************************************************************"
 echo "Running metamap image $metamap_image "
@@ -13,7 +13,8 @@ echo "with options "$@""
 echo "**********************************************************************"
 
 TAGGER_LOG=~/.metamap/tagger_log:/opt/public_mm/MedPost-SKR/Tagger_server/log
-WSD_LOG=~/.metamap/wsd_log:/opt/public_mm/WSD_Server/log
+# WSD_LOG=~/.metamap/wsd_log:/opt/public_mm/WSD_Server/log
 DICTIONARIES=/data/ursa_software/metamap/public_mm/DB:/opt/public_mm/DB
+TEST_GIT=/data/git:/opt/public_mm/DB
 
-singularity exec --cleanenv -B /data -B $TAGGER_LOG -B $WSD_LOG -B $DICTIONARIES $metamap_image bash -c "${COMMAND}"
+singularity exec --cleanenv -B /data -B $TAGGER_LOG -B $DICTIONARIES $metamap_image bash -c "${COMMAND}"
