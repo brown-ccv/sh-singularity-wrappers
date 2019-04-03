@@ -1,6 +1,6 @@
 #!/bin/bash
 
-julia_img=`ls /opt/browncis/containers/bcbi/sh-julia-datasci-bio*`
+julia_img=`ls /opt/browncis/containers/bcbi/sh-julia-datasci-bio.simg`
 
 len=${#julia_img[*]}
 

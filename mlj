@@ -1,6 +1,6 @@
 #!/bin/bash
 
-julia_img=`ls /opt/browncis/containers/bcbi/sh-julia-datasci-bio.simg`
+julia_img=`ls /opt/browncis/containers/bcbi/sh-julia-datasci-py-mlj.simg`
 
 len=${#julia_img[*]}
 
@@ -9,7 +9,7 @@ then
     echo "**********************************************************************"
     echo "Running $julia_img "
     echo "**********************************************************************"
-    singularity shell -B /run -B /data $julia_img
+    singularity exec -B /run -B /data $julia_img julia "$@"
 else
     echo "**********************************************************************"
     echo "Error - more than one julia image found ($len). Contact addministrator"
