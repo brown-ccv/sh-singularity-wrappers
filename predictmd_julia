@@ -4,4 +4,4 @@ set -ev
 
 predictmd_image="/opt/browncis/containers/bcbi/predictmd.simg"
 
-singularity shell -B "/data" "$predictmd_image"
+singularity exec -B "/data" "$predictmd_image" julia "$@"
