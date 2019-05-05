@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -ev
+set -e
+set +v
 
 predictmd_image="/opt/browncis/containers/bcbi/predictmd.simg"
 
