@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+set +v
+
+predictmd_image="/opt/browncis/containers/bcbi/predictmd.simg"
+
+singularity exec -B "/data" "$predictmd_image" "$@"
+
