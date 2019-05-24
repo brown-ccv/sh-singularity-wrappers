@@ -3,7 +3,7 @@
 julia_img=`ls /opt/browncis/containers/bcbi/sh-julia-datasci-bio*.simg`
 
 len=${#julia_img[*]}
-viva=/opt/julia/share/julia/packages/VariantVisualization/*/viva
+viva=/opt/julia/share/julia/packages/VariantVisualization/FIBFq/viva
 
 if (( $len == 1))
 then
