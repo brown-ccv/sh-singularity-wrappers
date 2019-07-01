@@ -3,6 +3,6 @@
 set -e
 set +v
 
-predictmd_image="/opt/browncis/containers/bcbi/predictmd.simg"
+predictmd_image="/opt/browncis/containers/bcbi/predictmd-2019-06-24.simg"
 
 singularity exec -B "/data" "$predictmd_image" julia "$@"

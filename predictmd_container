@@ -1,7 +1,8 @@
 #!/bin/bash
 
-set -ev
+set -e
+set -v
 
-predictmd_image="/opt/browncis/containers/bcbi/predictmd.simg"
+predictmd_image="/opt/browncis/containers/bcbi/predictmd-2019-06-24.simg"
 
 singularity shell -B "/data" "$predictmd_image"
