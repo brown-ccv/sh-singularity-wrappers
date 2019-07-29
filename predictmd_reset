@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+set -v
+
+rm -rf ~/.julia.isolated/BCBIOfflineRegistry
+
+rm -rf $HOME/.julia.isolated/BCBIOfflineRegistry
